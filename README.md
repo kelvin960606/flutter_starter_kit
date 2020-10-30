@@ -9,7 +9,7 @@
 1. Project File Structure
     - root
         - lib
-            - app
+            - core
                 - **locator.dart** [use to implement service]
                 - **router.dart** [use to define routes]
                 - *router.gr.dart* [generated file]
@@ -17,25 +17,20 @@
             - models
             - services
                 - **third_party_service_module.dart** [define third party services]
-            - ui
-                - views [pages]
-                    - startup
-                        - **startup_view.dart** [startup page Ui]
-                        - **startup_viewmodel.dart** [startup page logic]
-                - widgets [components]
-                    - components1
-                        - comp1_view.dart
-                        - comp1_viewmodel.dart
-                - smart widgets [reactive components]
-                    - components1
-                        - comp1_view.dart
-                        - comp1_viewmodel.dart
+            - pages
+                - startup
+                    - startup.dart
+                    - startup_viewmodel.dart
+            - widgets
+                - tool
+                    - tool.dart
+                    - tool_viewmodel.dart
 2. Creating new page
-    - Create new folder into **ui\views** folder.
-        - <page_name>_view.dart
+    - Create new folder into **pages** folder.
+        - <page_name>.dart
         - <page_name>_viewmodel.dart
     - Initialize code.
-        - x_view.dart
+        - x.dart
 
             ```dart
             import 'package:flutter/material.dart';
