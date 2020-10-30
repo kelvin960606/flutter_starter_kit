@@ -11,13 +11,16 @@ import 'package:flutter/material.dart';
 
 import '../pages/home/home.dart';
 import '../pages/landing/landing.dart';
+import '../pages/loading_test/loading_test.dart';
 
 class Routes {
   static const String homeView = '/home-view';
   static const String landingView = '/landing-view';
+  static const String loadingTestView = '/loading-test-view';
   static const all = <String>{
     homeView,
     landingView,
+    loadingTestView,
   };
 }
 
@@ -27,6 +30,7 @@ class AppRouter extends RouterBase {
   final _routes = <RouteDef>[
     RouteDef(Routes.homeView, page: HomeView),
     RouteDef(Routes.landingView, page: LandingView),
+    RouteDef(Routes.loadingTestView, page: LoadingTestView),
   ];
   @override
   Map<Type, AutoRouteFactory> get pagesMap => _pagesMap;
@@ -43,5 +47,28 @@ class AppRouter extends RouterBase {
         settings: data,
       );
     },
+    LoadingTestView: (data) {
+      final args = data.getArgs<LoadingTestViewArguments>(
+        orElse: () => LoadingTestViewArguments(),
+      );
+      return MaterialPageRoute<dynamic>(
+        builder: (context) => LoadingTestView(
+          key: args.key,
+          title: args.title,
+        ),
+        settings: data,
+      );
+    },
   };
+}
+
+/// ************************************************************************
+/// Arguments holder classes
+/// *************************************************************************
+
+/// LoadingTestView arguments holder class
+class LoadingTestViewArguments {
+  final Key key;
+  final String title;
+  LoadingTestViewArguments({this.key, this.title});
 }
